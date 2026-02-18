@@ -1,17 +1,18 @@
 ---
-title: "Recommended Data Science Workflows for UNC Research Projects"
+title: "Reproducible Workflows with Quarto"
+subtitle: "From Data Analysis to Manuscript Creation and Website Publishing"
 author: "Russell Blessing"
 format: revealjs
 ---
 
 ## Outline
 
-- Workflow Overview
-- Setting up Positron
-- Longleaf Integration
-- Quarto Projects
-- Manuscript Creation
-- Website Publishing and Sharing
+1. Workflow Overview
+2. Setting up Positron
+3. Longleaf Integration
+4. Quarto Projects
+5. Manuscript Creation
+6. Website Publishing and Sharing
 
 ## Workflow Overview
 

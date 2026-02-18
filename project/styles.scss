@@ -1,0 +1,156 @@
+/* ==========================================================================
+   UNC-Chapel Hill Reveal.js styling for Quarto
+   ========================================================================== */
+
+/* UNC official palette */
+$unc-carolina-blue: #4B9CD3;
+$unc-navy:          #13294B;
+$unc-link-blue:     #007FAE;
+$unc-black:         #151515;
+
+/* Fonts */
+$font-sans:  "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+$font-serif: "Source Serif 4", "Source Serif Pro", ui-serif, Georgia, "Times New Roman", serif;
+$font-condensed: "Field Gothic Narrow", "Oswald", "Arial Narrow", $font-sans;
+$font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+/* Reveal base */
+.reveal {
+  font-family: $font-sans;
+  color: $unc-black;
+}
+
+.reveal .slides {
+  text-align: left;
+}
+
+/* Headings */
+.reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+  color: $unc-navy;
+  font-family: $font-condensed;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  line-height: 1.1;
+}
+
+.reveal h1 { font-size: 2.2em; }
+.reveal h2 { font-size: 1.6em; }
+.reveal h3 { font-size: 1.2em; }
+
+/* Body text sizing */
+.reveal section { font-size: 30px; }
+.reveal p, .reveal li { line-height: 1.35; }
+.reveal ul { margin: 0.6em 0 0.6em 1.1em; }
+
+/* Links */
+.reveal a {
+  color: $unc-link-blue;
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+  text-decoration-thickness: 0.09em;
+}
+.reveal a:hover { text-decoration-thickness: 0.13em; }
+
+/* Title slide: Quarto sets background via title-slide-attributes */
+.reveal .slide-background.present {
+  background-color: $unc-navy;
+}
+
+.reveal .title-slide,
+.reveal .quarto-title-block {
+  color: #fff;
+}
+
+.reveal .title-slide h1,
+.reveal .quarto-title-block h1 {
+  color: #fff;
+}
+
+.reveal .title-slide p,
+.reveal .quarto-title-block p {
+  color: rgba(255,255,255,0.92);
+  font-family: $font-sans;
+}
+
+/* Code */
+.reveal pre, .reveal code {
+  font-family: $font-mono;
+}
+.reveal pre {
+  border-radius: 12px;
+  padding: 0.9em 1em;
+  background: #f7f7f7;
+  border: 1px solid #e1e1e1;
+}
+.reveal code {
+  background: rgba(19,41,75,0.06);
+  padding: 0.08em 0.25em;
+  border-radius: 8px;
+}
+
+/* Tables */
+.reveal table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85em;
+}
+.reveal th {
+  color: $unc-navy;
+  border-bottom: 2px solid $unc-navy;
+  padding: 0.45em 0.6em;
+  text-align: left;
+}
+.reveal td {
+  border-bottom: 1px solid #e1e1e1;
+  padding: 0.45em 0.6em;
+}
+
+/* Callouts (Quarto -> reveal) */
+.reveal .callout {
+  border-left: 10px solid $unc-carolina-blue;
+  border-radius: 14px;
+  padding: 0.7em 0.9em;
+  background: rgba(75,156,211,0.10);
+}
+.reveal .callout .callout-title {
+  font-weight: 700;
+  color: $unc-navy;
+  margin-bottom: 0.2em;
+}
+
+/* Footer bar */
+.unc-footer {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+  background: rgba(19,41,75,0.92);
+  border-top: 6px solid $unc-carolina-blue;
+  z-index: 9999;
+}
+
+.unc-footer-mark {
+  height: 18px;
+  width: auto;
+  display: block;
+  filter: brightness(0) invert(1); /* makes a dark mark usable if needed */
+}
+
+.unc-footer-title {
+  font-family: $font-sans;
+  font-size: 14px;
+  color: rgba(255,255,255,0.92);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 60vw;
+}
+
+/* Make room so slide content doesn't get covered by footer */
+.reveal .slides section {
+  padding-bottom: 56px;
+}
+
