@@ -1,0 +1,19 @@
+---
+title: "Recommended Data Science Workflows for UNC Research Projects"
+author: "Russell Blessing"
+format: revealjs
+---
+
+## Outline
+
+- Workflow Overview
+- Setting up Positron
+- Longleaf Integration
+- Quarto Projects
+- Manuscript Creation
+- Website Publishing and Sharing
+
+## Workflow Overview
+
+
+
