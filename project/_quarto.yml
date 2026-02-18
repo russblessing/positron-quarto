@@ -1,7 +1,7 @@
 format:
   revealjs:
     theme: default
-    css: styles.css
+    css: styles.scss
     slide-number: true
     progress: true
     hash: true
