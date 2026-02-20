@@ -16,5 +16,135 @@ format: revealjs
 
 ## Workflow Overview
 
+### Development Environment
+- **Preferred:** Positron IDE + Quarto  
+    - [Install](https://positron.posit.co/download.html) Positron IDE
+    - I recommend watching this Quarto [video](https://www.youtube.com/watch?v=BoiW9UWDLY0&t=573s) before going any further.
+- Alternative: RStudio Sandbox (GDAL pre-loaded) + Quarto
+    - Requires a request to IT for access and setup
+
+### Data Inspection
+- QGIS (visual review & QA/QC)
+
+## Setting up Positron
+Edit your ssh file on your local machine:
+```bash
+nano ~/.ssh/config
+```
+Copy/Paste replacing `YOUR_ONYEN` with your actual ONYEN:
+```bash
+Host longleaf
+  HostName longleaf.unc.edu
+  User YOUR_ONYEN
+  ServerAliveInterval 60
+  ServerAliveCountMax 3
+
+Host b* c* g* t*
+  User YOUR_ONYEN
+  ProxyJump longleaf
+  ServerAliveInterval 60
+  ServerAliveCountMax 3
+```
+Save and exit the file (Ctrl + O, Enter, Ctrl + X).
+
+## Longleaf Integration
+Login to longleaf from your terminal:
+```bash
+ssh longleaf
+```
+Create a SLURM script for Positron sessions (type: nano interactive) and paste:
+```bash
+#!/bin/bash
+
+salloc \
+  --job-name=positron \
+  --cpus-per-task=8 \
+  --mem=24GB \
+  --nodes=1 \
+  --ntasks=1 \
+  --time=08:00:00 \
+  --partition=interact
+```
+Save and exit the file (Ctrl + O, Enter, Ctrl + X).
+
+## Longleaf Integration (cont.)
+Submit the SLURM script to start an interactive session:
+```bash
+bash interactive
+```
+You will see something like this:
+```
+salloc: Pending job allocation 31348688
+salloc: job 31348688 queued and waiting for resources
+salloc: job 31348688 has been allocated resources
+salloc: Granted job allocation 31348688
+salloc: Nodes c0402 are ready for job
+```
+Copy the node name (e.g., `c0402`)
+
+## Integrating Positron with Longleaf
+In Positron, go to positron > settings > and type: `kernel supervisor: run`
+- Select the checkbox for "Run Kernels in a login shell"
+![](assets/screenshots/Supervisor.png)
+
+
+## Integrating Positron with Longleaf (cont.)
+Next type: `cmd-shift-p` or `ctrl-shift-p` to open the command palette and type: `ssh`
+
+- You will see something like this:
+
+![](assets/screenshots/ssh.png)
+Type: `<<cluster id>>.ll.unc.edu` and hit enter
+
+
+## Create a Quarto Project
+In Positron, go to New > New Folder from Git > and paste the URL of your GitHub repository 
+Next, select New > New File > Quarto Project > Manuscript Project
+
+- This will create a new folder with the necessary files for a Quarto manuscript project
+- Use the `index.qmd` file as your main manuscript file and edit it with your content
+- Use the `references.bib` file to manage your bibliography and citations
+- Use the notebooks folder to create and organize your data analysis notebooks as qmd files
+- Click preview to see the rendered manuscript and make adjustments as needed
+
+## Manucript Formatting & Publishing
+Many journals now have their own Quarto template for manuscript formatting, found [here](https://github.com/quarto-journals/).
+Follow their instructions for adding the template as an extension.
+Before publishing go to your GitHub repository.
+
+- Navigate to Settings > Pages
+- Under Branch, select gh-pages and click Save
+- Your manuscript will be published at `https://<your-github-username>.github.io/<repository-name>/`
+
+## Manuscript Formatting & Publishing (cont.)
+Back is Positron your yaml should look something like this:
+```yaml
+project:
+  type: manuscript
+  resources:
+    - bibliography.bib
+    - notebooks/*.qmd
+manuscript:
+  article: index.qmd
+format:
+  html:
+    comments:
+      hypothesis: true
+  docx: default
+  jats: default
+execute:
+  freeze: true
+bibliography: bibliography.bib
+```
+
+## Website Publishing and Sharing
+Before publishing, make sure to commit and push your changes to GitHub.
+
+To publish your manuscript as a website, run the following command in your terminal:
+```bash
+quarto publish gh-pages
+```
+Go to your GitHub repository and navigate to Settings > Pages and your live site should be listed. 
+
 
 

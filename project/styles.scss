@@ -37,6 +37,17 @@ $font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation M
 .reveal h2 { font-size: 1.6em; }
 .reveal h3 { font-size: 1.2em; }
 
+/* Tighten heading-to-list spacing in Reveal */
+.reveal h3 {
+  margin-bottom: 0em;
+}
+
+.reveal h3 + ul,
+.reveal h3 + ol {
+  margin-top: 0em;
+}
+
+
 /* Body text sizing */
 .reveal section { font-size: 30px; }
 .reveal p, .reveal li { line-height: 1.35; }
