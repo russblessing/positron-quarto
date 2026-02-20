@@ -1,0 +1,79 @@
+[
+  {
+    "objectID": "index.html#outline",
+    "href": "index.html#outline",
+    "title": "Reproducible Workflows with Quarto",
+    "section": "Outline",
+    "text": "Outline\n\nWorkflow Overview\nSetting up Positron\nLongleaf Integration\nQuarto Projects\nManuscript Creation\nWebsite Publishing and Sharing"
+  },
+  {
+    "objectID": "index.html#workflow-overview",
+    "href": "index.html#workflow-overview",
+    "title": "Reproducible Workflows with Quarto",
+    "section": "Workflow Overview",
+    "text": "Workflow Overview\nDevelopment Environment\n\nPreferred: Positron IDE + Quarto\n\nInstall Positron IDE\nI recommend watching this Quarto video before going any further.\n\nAlternative: RStudio Sandbox (GDAL pre-loaded) + Quarto\n\nRequires a request to IT for access and setup\n\n\nData Inspection\n\nQGIS (visual review & QA/QC)"
+  },
+  {
+    "objectID": "index.html#setting-up-positron",
+    "href": "index.html#setting-up-positron",
+    "title": "Reproducible Workflows with Quarto",
+    "section": "Setting up Positron",
+    "text": "Setting up Positron\nEdit your ssh file on your local machine:\nnano ~/.ssh/config\nCopy/Paste replacing YOUR_ONYEN with your actual ONYEN:\nHost longleaf\n  HostName longleaf.unc.edu\n  User YOUR_ONYEN\n  ServerAliveInterval 60\n  ServerAliveCountMax 3\n\nHost b* c* g* t*\n  User YOUR_ONYEN\n  ProxyJump longleaf\n  ServerAliveInterval 60\n  ServerAliveCountMax 3\nSave and exit the file (Ctrl + O, Enter, Ctrl + X)."
+  },
+  {
+    "objectID": "index.html#longleaf-integration",
+    "href": "index.html#longleaf-integration",
+    "title": "Reproducible Workflows with Quarto",
+    "section": "Longleaf Integration",
+    "text": "Longleaf Integration\nLogin to longleaf from your terminal:\nssh longleaf\nCreate a SLURM script for Positron sessions (type: nano interactive) and paste:\n#!/bin/bash\n\nsalloc \\\n  --job-name=positron \\\n  --cpus-per-task=8 \\\n  --mem=24GB \\\n  --nodes=1 \\\n  --ntasks=1 \\\n  --time=08:00:00 \\\n  --partition=interact\nSave and exit the file (Ctrl + O, Enter, Ctrl + X)."
+  },
+  {
+    "objectID": "index.html#longleaf-integration-cont.",
+    "href": "index.html#longleaf-integration-cont.",
+    "title": "Reproducible Workflows with Quarto",
+    "section": "Longleaf Integration (cont.)",
+    "text": "Longleaf Integration (cont.)\nSubmit the SLURM script to start an interactive session:\nbash interactive\nYou will see something like this:\nsalloc: Pending job allocation 31348688\nsalloc: job 31348688 queued and waiting for resources\nsalloc: job 31348688 has been allocated resources\nsalloc: Granted job allocation 31348688\nsalloc: Nodes c0402 are ready for job\nCopy the node name (e.g., c0402)"
+  },
+  {
+    "objectID": "index.html#integrating-positron-with-longleaf",
+    "href": "index.html#integrating-positron-with-longleaf",
+    "title": "Reproducible Workflows with Quarto",
+    "section": "Integrating Positron with Longleaf",
+    "text": "Integrating Positron with Longleaf\nIn Positron, go to positron &gt; settings &gt; and type: kernel supervisor: run - Select the checkbox for “Run Kernels in a login shell”"
+  },
+  {
+    "objectID": "index.html#integrating-positron-with-longleaf-cont.",
+    "href": "index.html#integrating-positron-with-longleaf-cont.",
+    "title": "Reproducible Workflows with Quarto",
+    "section": "Integrating Positron with Longleaf (cont.)",
+    "text": "Integrating Positron with Longleaf (cont.)\nNext type: cmd-shift-p or ctrl-shift-p to open the command palette and type: ssh\n\nYou will see something like this:\n\n Type: &lt;&lt;cluster id&gt;&gt;.ll.unc.edu and hit enter"
+  },
+  {
+    "objectID": "index.html#create-a-quarto-project",
+    "href": "index.html#create-a-quarto-project",
+    "title": "Reproducible Workflows with Quarto",
+    "section": "Create a Quarto Project",
+    "text": "Create a Quarto Project\nIn Positron, go to New &gt; New Folder from Git &gt; and paste the URL of your GitHub repository Next, select New &gt; New File &gt; Quarto Project &gt; Manuscript Project\n\nThis will create a new folder with the necessary files for a Quarto manuscript project\nUse the index.qmd file as your main manuscript file and edit it with your content\nUse the references.bib file to manage your bibliography and citations\nUse the notebooks folder to create and organize your data analysis notebooks as qmd files\nClick preview to see the rendered manuscript and make adjustments as needed"
+  },
+  {
+    "objectID": "index.html#manucript-formatting-publishing",
+    "href": "index.html#manucript-formatting-publishing",
+    "title": "Reproducible Workflows with Quarto",
+    "section": "Manucript Formatting & Publishing",
+    "text": "Manucript Formatting & Publishing\nMany journals now have their own Quarto template for manuscript formatting, found here. Follow their instructions for adding the template as an extension. Before publishing go to your GitHub repository.\n\nNavigate to Settings &gt; Pages\nUnder Branch, select gh-pages and click Save\nYour manuscript will be published at https://&lt;your-github-username&gt;.github.io/&lt;repository-name&gt;/"
+  },
+  {
+    "objectID": "index.html#manuscript-formatting-publishing-cont.",
+    "href": "index.html#manuscript-formatting-publishing-cont.",
+    "title": "Reproducible Workflows with Quarto",
+    "section": "Manuscript Formatting & Publishing (cont.)",
+    "text": "Manuscript Formatting & Publishing (cont.)\nBack is Positron your yaml should look something like this:\nproject:\n  type: manuscript\n  resources:\n    - bibliography.bib\n    - notebooks/*.qmd\nmanuscript:\n  article: index.qmd\nformat:\n  html:\n    comments:\n      hypothesis: true\n  docx: default\n  jats: default\nexecute:\n  freeze: true\nbibliography: bibliography.bib"
+  },
+  {
+    "objectID": "index.html#website-publishing-and-sharing",
+    "href": "index.html#website-publishing-and-sharing",
+    "title": "Reproducible Workflows with Quarto",
+    "section": "Website Publishing and Sharing",
+    "text": "Website Publishing and Sharing\nBefore publishing, make sure to commit and push your changes to GitHub.\nTo publish your manuscript as a website, run the following command in your terminal:\nquarto publish gh-pages\nGo to your GitHub repository and navigate to Settings &gt; Pages and your live site should be listed."
+  }
+]
