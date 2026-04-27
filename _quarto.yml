@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: _site
+  output-dir: docs
   resources:
     - styles.scss
     - _partials/**
@@ -8,7 +8,7 @@ project:
     - index.qmd
     - about.qmd
   post-render:
-    - cp -r manuscript/_manuscript _site/manuscript
+    - cp -r manuscript/_manuscript docs/manuscript
 
 format:
   revealjs:
