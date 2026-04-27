@@ -1,0 +1,78 @@
+---
+title: "Exploring Classic R Datasets"
+author:
+  - name: Russ Blessing
+    orcid: 0000-0000-0000-0000
+    corresponding: true
+    email: rblessing@unc.edu
+    affiliations:
+      - UNC Chapel Hill
+date: today
+abstract: |
+  A short reproducible analysis of the iris and mtcars datasets,
+  demonstrating how figures generated in a separate analysis notebook
+  can be embedded directly into a Quarto manuscript. All figures
+  are produced with ggplot2 and sourced from notebooks/analysis.qmd.
+keywords: [reproducible research, ggplot2, iris, mtcars]
+license: CC BY 4.0
+bibliography: references.bib
+format:
+  html:
+    toc: true
+    toc-location: left
+    code-fold: true
+  pdf: default
+  docx: default
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+## Introduction
+
+This manuscript demonstrates a reproducible workflow using Quarto.
+All figures are generated in a dedicated analysis notebook
+(`notebooks/analysis.qmd`) and embedded here using the
+`{{< embed >}}` shortcode. Updating the notebook automatically
+updates this manuscript — no copy-paste required.
+
+## Iris Dataset
+
+The `iris` dataset contains measurements of sepal and petal
+dimensions for 150 flowers across three species: *setosa*,
+*versicolor*, and *virginica* [@anderson1935].
+
+### Sepal Dimensions
+
+@fig-iris-sepal shows a clear separation between species in
+sepal space, with *setosa* occupying a distinct region of
+high width relative to length.
+
+{{< embed notebooks/analysis.qmd#fig-iris-sepal >}}
+
+### Petal Length
+
+Species separation is even more pronounced in petal length
+(@fig-iris-petal), making it a reliable discriminating variable.
+
+{{< embed notebooks/analysis.qmd#fig-iris-petal >}}
+
+## Motor Trend Cars
+
+The `mtcars` dataset records fuel efficiency and physical
+characteristics for 32 automobiles from the 1974 Motor Trend
+magazine [@henderson1981]. @fig-mtcars illustrates the well-known
+negative relationship between vehicle weight and fuel efficiency,
+stratified by cylinder count.
+
+{{< embed notebooks/analysis.qmd#fig-mtcars >}}
+
+## Conclusion
+
+This document was rendered entirely from plain-text source files.
+The figures above were produced in `notebooks/analysis.qmd` and
+embedded without manual copying. Any change to the analysis
+notebook is reflected here on the next render.
+
+## References
