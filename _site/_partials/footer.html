@@ -1,0 +1,18 @@
+<div class="unc-footer">
+  <div class="unc-footer-left">
+    <img src="assets/unc/unc-wordmark.svg" class="unc-footer-mark"
+         alt="The University of North Carolina at Chapel Hill">
+  </div>
+  <div class="unc-footer-right">
+    <span class="unc-footer-title"></span>
+  </div>
+</div>
+
+<script>
+  // Put the talk title (from the <title>) into the footer, but keep it subtle.
+  (function () {
+    const t = document.title;
+    const el = document.querySelector(".unc-footer-title");
+    if (el && t) el.textContent = t.replace(/\s+–\s+.*$/, "");
+  })();
+</script>

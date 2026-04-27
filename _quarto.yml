@@ -1,3 +1,15 @@
+project:
+  type: website
+  output-dir: _site
+  resources:
+    - styles.scss
+    - _partials/**
+  render:
+    - index.qmd
+    - about.qmd
+  post-render:
+    - cp -r manuscript/_manuscript _site/manuscript
+
 format:
   revealjs:
     self-contained: true
@@ -17,5 +29,6 @@ format:
 
 execute:
   echo: false
+  eval: false
 
 
