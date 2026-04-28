@@ -1,5 +1,5 @@
 ---
-title: "Reproducible Research with Quarto"
+title: "<span style='font-size: 0.85em;'>Reproducible Research with Quarto</span>"
 subtitle: "From Data Analysis to Manuscript Creation and Website Publishing"
 author: "Russell Blessing"
 format: revealjs
@@ -12,31 +12,30 @@ format: revealjs
 
 ::: columns
 ::: {.column width="60%"}
-The **FAIR** principles — *Findable, Accessible, Interoperable, Reusable* — are a policy-level call to make scientific data reproducible by design.
+[The **FAIR** principles — *Findable, Accessible, Interoperable, Reusable* — are a policy-level call to make scientific data reproducible by design.]{style="font-size: 0.8em;"}
 
 ::: {.fragment}
-The **Reproducibility Project** (psychology, 2015) replicated only **~36%** of 100 studies, prompting wide calls to reform publication standards.
+[The **Reproducibility Project** (psychology, 2015) replicated only **~36%** of 100 studies, prompting wide calls to reform publication standards.]{style="font-size: 0.8em;"}
 :::
 :::
 
 ::: {.column width="40%"}
 ::: {.fragment}
-> "We have done an extraordinary amount of research that cannot be reproduced."
+> ["We have done an extraordinary amount of research that cannot be reproduced."]{style="font-size: 0.75em;"}
 >
-> — John Ioannidis
+> [— John Ioannidis]{style="font-size: 0.75em;"}
 :::
 :::
 :::
 
 ::: {.fragment}
-::: {style="margin-top: 1em; padding: 0.75em 1em; background-color: rgba(75,156,211,0.15); border-left: 4px solid #4B9CD3; border-radius: 4px; width: 100%;"}
+::: {style="margin-top: 0.5em; padding: 0.5em 0.75em; background-color: rgba(75,156,211,0.15); border-left: 4px solid #4B9CD3; border-radius: 4px; width: 100%; font-size: 0.8em;"}
 **The Frame of Mind:**
 
 - Code *is* the methods section.
 - Make your analysis a gift to your future self.
 :::
 :::
-
 
 
 
