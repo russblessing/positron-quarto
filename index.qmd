@@ -238,13 +238,11 @@ Pulls figures in via embed, adds narrative:
 :::
 
 ## The Rendered Manuscript
+## The Rendered Manuscript
 
-<iframe src="https://russblessing.github.io/positron-quarto/manuscript/"
-        width="100%"
-        height="520px"
-        style="border: 1px solid #4B9CD3; border-radius: 6px;">
-</iframe>
+[![Rendered manuscript](assets/screenshots/rendered_html.png)](https://russblessing.github.io/positron-quarto/manuscript/)
 
+[Live link](https://russblessing.github.io/positron-quarto/manuscript/)
 
 ## Positron: The IDE Built for Data Science
 
