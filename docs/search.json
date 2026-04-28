@@ -25,7 +25,7 @@
     "href": "index.html#quarto-documents-as-code",
     "title": "Reproducible Research with Quarto",
     "section": "Quarto: Documents as Code",
-    "text": "Quarto: Documents as Code\nQuarto is an open-source scientific publishing system that:\n\n\nInputs\n\n.qmd files (Quarto Markdown)\nJupyter notebooks (.ipynb)\nR, Python, Julia, Observable JS\n\n\nOutputs\n\nHTML reports & websites\nPDF / LaTeX\nMS Word / PowerPoint\nPresentations (like this one!)\nScientific manuscripts\n\n\n\nCode, narrative, and output live in the same file — no copy-paste."
+    "text": "Quarto: Documents as Code\nQuarto is an open-source scientific publishing system that:\n\n\nInputs\n\n.qmd files (Quarto Markdown)\nJupyter notebooks (.ipynb)\nR, Python, Julia, Observable JS\n\n\nOutputs\n\nHTML reports & websites\nPDF / LaTeX\nMS Word / PowerPoint\nPresentations\nScientific manuscripts\n\n\n\nCode, narrative, and output live in the same file — no copy-paste."
   },
   {
     "objectID": "index.html#anatomy-of-a-.qmd-file",
@@ -46,7 +46,7 @@
     "href": "index.html#step-1-label-your-figures-in-the-notebook",
     "title": "Reproducible Research with Quarto",
     "section": "Step 1: Label Your Figures in the Notebook",
-    "text": "Step 1: Label Your Figures in the Notebook\nIn notebooks/analysis.qmd, every figure gets a label:\n\nThe #| label: fig-* cell option is the hook — it’s how Quarto knows what to embed."
+    "text": "Step 1: Label Your Figures in the Notebook\nIn notebooks/analysis.qmd, every figure gets a label:\n#| label: fig-iris-sepal\n#| fig-cap: \"Sepal length vs. width across three iris species\"\n\nggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +\n  geom_point(alpha = 0.7, size = 2.5) +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  scale_color_manual(values = c(\"#13294B\", \"#4B9CD3\", \"#99C4E2\")) +\n  theme_minimal()\n\nThe #| label: fig-* cell option is the hook — it’s how Quarto knows what to embed."
   },
   {
     "objectID": "index.html#step-2-embed-into-the-manuscript",
@@ -60,7 +60,7 @@
     "href": "index.html#step-3-rich-front-matter-in-index.qmd",
     "title": "Reproducible Research with Quarto",
     "section": "Step 3: Rich Front Matter in index.qmd",
-    "text": "Step 3: Rich Front Matter in index.qmd\n---\ntitle: \"Exploring Classic R Datasets\"\nauthor:\n  - name: Russ Blessing\n    orcid: 0000-0000-0000-0000\n    corresponding: true\n    email: rblessing@unc.edu\n    affiliations:\n      - UNC Chapel Hill\ndate: today\nabstract: |\n  A reproducible analysis demonstrating the embed workflow...\nkeywords: [reproducible research, ggplot2, iris, mtcars]\nbibliography: references.bib\nformat:\n  html:\n    toc: true\n    code-fold: true\n  pdf: default\n  docx: default\n---\n\nOne YAML block → correctly formatted author info, abstract, and citations in every output format."
+    "text": "Step 3: Rich Front Matter in index.qmd\n---\ntitle: \"Exploring Classic R Datasets\"\nauthor:\n  - name: Russell Blessing\n    orcid: 0000-0000-0000-0000\n    corresponding: true\n    email: rblessing@unc.edu\n    affiliations:\n      - UNC Chapel Hill\ndate: today\nabstract: |\n  A reproducible analysis demonstrating the embed workflow...\nkeywords: [reproducible research, ggplot2, iris, mtcars]\nbibliography: references.bib\nformat:\n  html:\n    toc: true\n    code-fold: true\n  pdf: default\n  docx: default\n---\n\nOne YAML block → correctly formatted author info, abstract, and citations in every output format."
   },
   {
     "objectID": "index.html#what-the-rendered-manuscript-looks-like",
@@ -74,14 +74,21 @@
     "href": "index.html#the-payoff-nothing-gets-out-of-sync",
     "title": "Reproducible Research with Quarto",
     "section": "The Payoff: Nothing Gets Out of Sync",
-    "text": "The Payoff: Nothing Gets Out of Sync\n\nUpdate a figure in analysis.qmd → re-render → manuscript updates automatically\nNo re-exporting PNGs, no re-pasting into Word\nexecute: freeze: true in _quarto.yml caches results — fast re-renders without re-running all code\nOn Longleaf: run heavy computation as a SLURM job, commit frozen results, render the manuscript locally"
+    "text": "The Payoff: Nothing Gets Out of Sync\n\nUpdate a figure in analysis.qmd → re-render → manuscript updates automatically\nNo re-exporting PNGs, no re-pasting into Word\nexecute: freeze: true in _quarto.yml caches results — fast re-renders without re-running all code\nOn Longleaf: run heavy computations as a SLURM job\nVersion control everything with Git → track changes to code, narrative, and results together"
   },
   {
     "objectID": "index.html#the-rendered-manuscript",
     "href": "index.html#the-rendered-manuscript",
     "title": "Reproducible Research with Quarto",
     "section": "The Rendered Manuscript",
-    "text": "The Rendered Manuscript"
+    "text": "The Rendered Manuscript\n\n  \n\nLive link"
+  },
+  {
+    "objectID": "index.html#the-rendered-manuscript-1",
+    "href": "index.html#the-rendered-manuscript-1",
+    "title": "Reproducible Research with Quarto",
+    "section": "The Rendered Manuscript",
+    "text": "The Rendered Manuscript\n\n\n\nRendered manuscript\n\n\nLive link"
   },
   {
     "objectID": "index.html#positron-the-ide-built-for-data-science",
@@ -95,14 +102,14 @@
     "href": "index.html#positron-vs.-rstudio",
     "title": "Reproducible Research with Quarto",
     "section": "Positron vs. RStudio",
-    "text": "Positron vs. RStudio\n\n\n\nFeature\nRStudio\nPositron\n\n\n\n\nLanguage support\nR-focused\nR + Python\n\n\nBase platform\nCustom Qt\nVS Code\n\n\nVS Code extensions\n✗\n✓\n\n\nQuarto integration\n✓\n✓ (bundled)\n\n\nPolyglot notebooks\n✗\n✓\n\n\nVariables pane\n✓\n✓\n\n\n\n\nIf your lab uses R and Python — Positron is worth exploring."
+    "text": "Positron vs. RStudio\n\n\n\nFeature\nRStudio\nPositron\n\n\n\n\nLanguage support\nR-focused\nR + Python\n\n\nBase platform\nCustom Qt\nVS Code\n\n\nVS Code extensions\n✗\n✓\n\n\nQuarto integration\n✓\n✓ (bundled)\n\n\nMulti-language notebooks\n✗\n✓\n\n\nVariables pane\n✓\n✓"
   },
   {
     "objectID": "index.html#git-github-version-control-for-research",
     "href": "index.html#git-github-version-control-for-research",
     "title": "Reproducible Research with Quarto",
     "section": "Git + GitHub: Version Control for Research",
-    "text": "Git + GitHub: Version Control for Research\nA reproducible workflow needs version control:\n\nTrack every change to your code, data, and documents\nCollaborate without emailing files back and forth\nGitHub hosts your project and can auto-publish reports via GitHub Pages\nQuarto projects love Git — built-in publishing support\n\n\n# Typical workflow\ngit add analysis.qmd\ngit commit -m \"Add demographic analysis section\"\ngit push origin main"
+    "text": "Git + GitHub: Version Control for Research\nA reproducible workflow needs version control:\n\nTrack every change to your code, data, and documents\nCollaborate without emailing files back and forth\nGitHub hosts your project and can auto-publish reports via GitHub Pages\nQuarto projects have built-in publishing support, and Poisitron has Git integration out of the box\n\n\n# Typical workflow\ngit add analysis.qmd\ngit commit -m \"Add demographic analysis section\"\ngit push origin main"
   },
   {
     "objectID": "index.html#the-full-complexity-spectrum",
@@ -179,14 +186,14 @@
     "href": "index.html#a-reproducible-research-workflow-at-unc",
     "title": "Reproducible Research with Quarto",
     "section": "A Reproducible Research Workflow at UNC",
-    "text": "A Reproducible Research Workflow at UNC\nLocal Machine (Positron)          Longleaf (HPC)\n─────────────────────             ────────────────\nWrite .qmd analysis         →     Run data-intensive jobs\nExplore data interactively        Fit large models\n                            ←     Results / processed data\nRender final report locally\nPublish to GitHub Pages\n\nYour manuscript, code, and computational environment are all traceable and shareable."
+    "text": "A Reproducible Research Workflow at UNC\n\nWrite your analysis in .qmd files in Positron, connected to Longleaf via SSH\nVersion everything with Git from day one\nPush computationally intensive jobs to Longleaf via SLURM\nRender to HTML, PDF, and Word on Longleaf with a single quarto render\nPublish to GitHub Pages for sharing and transparency quarto publish gh-pages"
   },
   {
     "objectID": "index.html#what-this-looks-like-in-practice",
     "href": "index.html#what-this-looks-like-in-practice",
     "title": "Reproducible Research with Quarto",
     "section": "What This Looks Like in Practice",
-    "text": "What This Looks Like in Practice\n\nWrite your analysis in .qmd files locally in Positron\nVersion everything with Git from day one\nPush computationally intensive jobs to Longleaf via SLURM\nPull results back, integrate into your .qmd narrative\nRender to HTML, PDF, and Word with a single quarto render\nPublish to GitHub Pages or Quarto Pub automatically"
+    "text": "What This Looks Like in Practice\n\nWrite your analysis in .qmd files in Positron, connected to Longleaf via SSH\nVersion everything with Git from day one\nPush computationally intensive jobs to Longleaf via SLURM\nRender to HTML, PDF, and Word on Longleaf with a single quarto render\nPublish to GitHub Pages for sharing and transparency quarto publish gh-pages"
   },
   {
     "objectID": "index.html#benefits-for-researchers",
@@ -200,7 +207,7 @@
     "href": "index.html#your-next-steps",
     "title": "Reproducible Research with Quarto",
     "section": "Your Next Steps",
-    "text": "Your Next Steps\n\nInstall Positron → positron.posit.co\n(Quarto and R/Python support are bundled)\nTry a Quarto document → File &gt; New File &gt; Quarto Document\nRequest a Longleaf account → help.rc.unc.edu\nExplore Quarto manuscripts → quarto.org/docs/manuscripts\nCheck the tutorial deck (coming this summer) for step-by-step setup"
+    "text": "Your Next Steps\n\nRequest a Longleaf account → help.rc.unc.edu\nInstall Positron → positron.posit.co\n\nTry a Quarto document → File &gt; New File &gt; Quarto Document\nWork through tutorials → quarto.org/docs/manuscripts\nExplore Journal templates → quarto.org/docs/extensions\nCheck the tutorial deck (coming this summer) for step-by-step setup"
   },
   {
     "objectID": "index.html#resources",
@@ -214,7 +221,7 @@
     "href": "index.html#questions",
     "title": "Reproducible Research with Quarto",
     "section": "Questions?",
-    "text": "Questions?\n\nLet’s talk reproducibility 🔬\n\n\nSlides built with Quarto + Positron"
+    "text": "Questions?\n\nSlides built with Quarto + Positron"
   },
   {
     "objectID": "index.html#outline",
@@ -292,5 +299,33 @@
     "title": "Reproducible Research with Quarto",
     "section": "Website Publishing and Sharing",
     "text": "Website Publishing and Sharing\nBefore publishing, make sure to commit and push your changes to GitHub.\nTo publish your manuscript as a website, run the following command in your terminal:\nquarto publish gh-pages\nGo to your GitHub repository and navigate to Settings &gt; Pages and your live site should be listed."
+  },
+  {
+    "objectID": "index.html#step-1-conduct-your-analysis",
+    "href": "index.html#step-1-conduct-your-analysis",
+    "title": "Reproducible Research with Quarto",
+    "section": "Step 1: Conduct Your Analysis",
+    "text": "Step 1: Conduct Your Analysis\nIn notebooks/analysis.qmd, every figure gets a label:\n#| label: fig-iris-sepal\n#| fig-cap: \"Sepal length vs. width across three iris species\"\n\nggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +\n  geom_point(alpha = 0.7, size = 2.5) +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  scale_color_manual(values = c(\"#13294B\", \"#4B9CD3\", \"#99C4E2\")) +\n  theme_minimal()\n\nThe #| label: fig-* cell option is the hook — it’s how Quarto knows what to embed."
+  },
+  {
+    "objectID": "index.html#step-2-write-your-narrative",
+    "href": "index.html#step-2-write-your-narrative",
+    "title": "Reproducible Research with Quarto",
+    "section": "Step 2: Write Your Narrative",
+    "text": "Step 2: Write Your Narrative\nIn index.qmd, reference the label with the embed shortcode:\n### Sepal Dimensions\n\nSpecies separate clearly in sepal space (@fig-iris-sepal).\n\n{{&lt; embed notebooks/analysis.qmd#fig-iris-sepal &gt;}}\n\nOptions to control what’s shown:\n# Figure only (default)\n{{&lt; embed notebooks/analysis.qmd#fig-iris-sepal &gt;}}\n\n# Figure + code\n{{&lt; embed notebooks/analysis.qmd#fig-iris-sepal echo=true &gt;}}"
+  },
+  {
+    "objectID": "index.html#step-3-configure-your-manuscript",
+    "href": "index.html#step-3-configure-your-manuscript",
+    "title": "Reproducible Research with Quarto",
+    "section": "Step 3: Configure Your Manuscript",
+    "text": "Step 3: Configure Your Manuscript\n---\ntitle: \"Exploring Classic R Datasets\"\nauthor:\n  - name: Russell Blessing\n    orcid: 0000-0000-0000-0000\n    corresponding: true\n    email: rblessing@unc.edu\n    affiliations:\n      - UNC Chapel Hill\ndate: today\nabstract: |\n  A reproducible analysis demonstrating the embed workflow...\nkeywords: [reproducible research, ggplot2, iris, mtcars]\nbibliography: references.bib\nformat:\n  html:\n    toc: true\n    code-fold: true\n  pdf: default\n  docx: default\n---\n\nOne YAML block → correctly formatted author info, abstract, and citations in every output format."
+  },
+  {
+    "objectID": "index.html#risky-live-demo-time",
+    "href": "index.html#risky-live-demo-time",
+    "title": "Reproducible Research with Quarto",
+    "section": "…risky live demo time…",
+    "text": "…risky live demo time…\n![]assets/gifs/arrested.gif\n\nSlides built with Quarto + Positron"
   }
 ]
