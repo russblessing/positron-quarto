@@ -1247,20 +1247,20 @@ Russell Blessing
 <h1><span style="font-size: 0.85em;">The Reproducibility Problem</span></h1>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p>The <strong>FAIR</strong> principles — <em>Findable, Accessible, Interoperable, Reusable</em> — are a policy-level call to make scientific data reproducible by design.</p>
+<p><span style="font-size: 0.8em;">The <strong>FAIR</strong> principles — <em>Findable, Accessible, Interoperable, Reusable</em> — are a policy-level call to make scientific data reproducible by design.</span></p>
 <div class="fragment">
-<p>The <strong>Reproducibility Project</strong> (psychology, 2015) replicated only <strong>~36%</strong> of 100 studies, prompting wide calls to reform publication standards.</p>
+<p><span style="font-size: 0.8em;">The <strong>Reproducibility Project</strong> (psychology, 2015) replicated only <strong>~36%</strong> of 100 studies, prompting wide calls to reform publication standards.</span></p>
 </div>
 </div><div class="column" style="width:40%;">
 <div class="fragment">
 <blockquote>
-<p>“We have done an extraordinary amount of research that cannot be reproduced.”</p>
-<p>— John Ioannidis</p>
+<p><span style="font-size: 0.75em;">“We have done an extraordinary amount of research that cannot be reproduced.”</span></p>
+<p><span style="font-size: 0.75em;">— John Ioannidis</span></p>
 </blockquote>
 </div>
 </div></div>
 <div class="fragment">
-<div style="margin-top: 1em; padding: 0.75em 1em; background-color: rgba(75,156,211,0.15); border-left: 4px solid #4B9CD3; border-radius: 4px; width: 100%;">
+<div style="margin-top: 0.5em; padding: 0.5em 0.75em; background-color: rgba(75,156,211,0.15); border-left: 4px solid #4B9CD3; border-radius: 4px; width: 100%; font-size: 0.8em;">
 <p><strong>The Frame of Mind:</strong></p>
 <ul>
 <li>Code <em>is</em> the methods section.</li>
@@ -1743,16 +1743,13 @@ They stay in sync automatically.</p>
 <p>Slides built with <a href="https://quarto.org">Quarto</a> + <a href="https://positron.posit.co">Positron</a></p>
 </div>
 </section>
-<section id="outline" class="slide level2">
-<h2>Outline</h2>
-<ol type="1">
-<li>Workflow Overview</li>
-<li>Setting up Positron</li>
-<li>Longleaf Integration</li>
-<li>Quarto Projects</li>
-<li>Manuscript Creation</li>
-<li>Website Publishing and Sharing</li>
-</ol>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="set-up" class="title-slide slide level1 center">
+<h1>Set up</h1>
+
 </section>
 <section id="workflow-overview" class="slide level2">
 <h2>Workflow Overview</h2>
@@ -1772,46 +1769,56 @@ They stay in sync automatically.</p>
 <ul>
 <li>QGIS (visual review &amp; QA/QC)</li>
 </ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a></a><span class="ex">module</span> load apptainer</span>
+<span id="cb10-2"><a></a><span class="ex">apptainer</span> exec /nas/longleaf/containers/qgis/3.99/image/qgis.simg qgis</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="setting-up-positron" class="slide level2">
 <h2>Setting up Positron</h2>
 <p>Edit your ssh file on your local machine:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a></a><span class="fu">nano</span> ~/.ssh/config</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a></a><span class="fu">nano</span> ~/.ssh/config</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Copy/Paste replacing <code>YOUR_ONYEN</code> with your actual ONYEN:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a></a><span class="ex">Host</span> longleaf</span>
-<span id="cb11-2"><a></a>  <span class="ex">HostName</span> longleaf.unc.edu</span>
-<span id="cb11-3"><a></a>  <span class="ex">User</span> YOUR_ONYEN</span>
-<span id="cb11-4"><a></a>  <span class="ex">ServerAliveInterval</span> 60</span>
-<span id="cb11-5"><a></a>  <span class="ex">ServerAliveCountMax</span> 3</span>
-<span id="cb11-6"><a></a></span>
-<span id="cb11-7"><a></a><span class="ex">Host</span> b<span class="pp">*</span> c<span class="pp">*</span> g<span class="pp">*</span> t<span class="pp">*</span></span>
-<span id="cb11-8"><a></a>  <span class="ex">User</span> YOUR_ONYEN</span>
-<span id="cb11-9"><a></a>  <span class="ex">ProxyJump</span> longleaf</span>
-<span id="cb11-10"><a></a>  <span class="ex">ServerAliveInterval</span> 60</span>
-<span id="cb11-11"><a></a>  <span class="ex">ServerAliveCountMax</span> 3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a></a><span class="ex">Host</span> longleaf</span>
+<span id="cb12-2"><a></a>  <span class="ex">HostName</span> longleaf.unc.edu</span>
+<span id="cb12-3"><a></a>  <span class="ex">User</span> YOUR_ONYEN</span>
+<span id="cb12-4"><a></a>  <span class="ex">ServerAliveInterval</span> 60</span>
+<span id="cb12-5"><a></a>  <span class="ex">ServerAliveCountMax</span> 3</span>
+<span id="cb12-6"><a></a></span>
+<span id="cb12-7"><a></a><span class="ex">Host</span> b<span class="pp">*</span> c<span class="pp">*</span> g<span class="pp">*</span> t<span class="pp">*</span></span>
+<span id="cb12-8"><a></a>  <span class="ex">User</span> YOUR_ONYEN</span>
+<span id="cb12-9"><a></a>  <span class="ex">ProxyJump</span> longleaf</span>
+<span id="cb12-10"><a></a>  <span class="ex">ServerAliveInterval</span> 60</span>
+<span id="cb12-11"><a></a>  <span class="ex">ServerAliveCountMax</span> 3</span>
+<span id="cb12-12"><a></a></span>
+<span id="cb12-13"><a></a><span class="ex">Host</span> <span class="pp">*</span>.ll.unc.edu</span>
+<span id="cb12-14"><a></a>  <span class="ex">User</span> YOUR_ONYEN</span>
+<span id="cb12-15"><a></a>  <span class="ex">ProxyJump</span> longleaf</span>
+<span id="cb12-16"><a></a>  <span class="ex">ServerAliveInterval</span> 60</span>
+<span id="cb12-17"><a></a>  <span class="ex">ServerAliveCountMax</span> 3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Save and exit the file (Ctrl + O, Enter, Ctrl + X).</p>
 </section>
 <section id="longleaf-integration" class="slide level2">
 <h2>Longleaf Integration</h2>
 <p>Login to longleaf from your terminal:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a></a><span class="fu">ssh</span> longleaf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a></a><span class="fu">ssh</span> longleaf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Create a SLURM script for Positron sessions (type: nano interactive) and paste:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a></a><span class="co">#!/bin/bash</span></span>
-<span id="cb13-2"><a></a></span>
-<span id="cb13-3"><a></a><span class="ex">salloc</span> <span class="dt">\</span></span>
-<span id="cb13-4"><a></a>  <span class="at">--job-name</span><span class="op">=</span>positron <span class="dt">\</span></span>
-<span id="cb13-5"><a></a>  <span class="at">--cpus-per-task</span><span class="op">=</span>8 <span class="dt">\</span></span>
-<span id="cb13-6"><a></a>  <span class="at">--mem</span><span class="op">=</span>24GB <span class="dt">\</span></span>
-<span id="cb13-7"><a></a>  <span class="at">--nodes</span><span class="op">=</span>1 <span class="dt">\</span></span>
-<span id="cb13-8"><a></a>  <span class="at">--ntasks</span><span class="op">=</span>1 <span class="dt">\</span></span>
-<span id="cb13-9"><a></a>  <span class="at">--time</span><span class="op">=</span>08:00:00 <span class="dt">\</span></span>
-<span id="cb13-10"><a></a>  <span class="at">--partition</span><span class="op">=</span>interact</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a></a><span class="co">#!/bin/bash</span></span>
+<span id="cb14-2"><a></a><span class="co"># Adjust --cpus-per-task if using parallel processing</span></span>
+<span id="cb14-3"><a></a><span class="co"># Adjust --mem based on your needs</span></span>
+<span id="cb14-4"><a></a></span>
+<span id="cb14-5"><a></a><span class="ex">salloc</span> <span class="dt">\</span></span>
+<span id="cb14-6"><a></a>  <span class="at">--job-name</span><span class="op">=</span>positron <span class="dt">\</span></span>
+<span id="cb14-7"><a></a>  <span class="at">--cpus-per-task</span><span class="op">=</span>1 <span class="dt">\ </span></span>
+<span id="cb14-8"><a></a>  <span class="ex">--mem=70GB</span> <span class="dt">\ </span></span>
+<span id="cb14-9"><a></a>  <span class="ex">--nodes=1</span> <span class="dt">\</span></span>
+<span id="cb14-10"><a></a>  <span class="at">--ntasks</span><span class="op">=</span>1 <span class="dt">\</span></span>
+<span id="cb14-11"><a></a>  <span class="at">--time</span><span class="op">=</span>08:00:00 <span class="dt">\</span></span>
+<span id="cb14-12"><a></a>  <span class="at">--partition</span><span class="op">=</span>interact</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Save and exit the file (Ctrl + O, Enter, Ctrl + X).</p>
 </section>
 <section id="longleaf-integration-cont." class="slide level2">
 <h2>Longleaf Integration (cont.)</h2>
 <p>Submit the SLURM script to start an interactive session:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a></a><span class="fu">bash</span> interactive</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a></a><span class="fu">bash</span> interactive</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>You will see something like this:</p>
 <pre><code>salloc: Pending job allocation 31348688
 salloc: job 31348688 queued and waiting for resources
@@ -1855,28 +1862,28 @@ salloc: Nodes c0402 are ready for job</code></pre>
 <section id="manuscript-formatting-publishing-cont." class="slide level2">
 <h2>Manuscript Formatting &amp; Publishing (cont.)</h2>
 <p>Back is Positron your yaml should look something like this:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb16-1"><a></a><span class="fu">project</span><span class="kw">:</span></span>
-<span id="cb16-2"><a></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> manuscript</span></span>
-<span id="cb16-3"><a></a><span class="at">  </span><span class="fu">resources</span><span class="kw">:</span></span>
-<span id="cb16-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> bibliography.bib</span></span>
-<span id="cb16-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> notebooks/*.qmd</span></span>
-<span id="cb16-6"><a></a><span class="fu">manuscript</span><span class="kw">:</span></span>
-<span id="cb16-7"><a></a><span class="at">  </span><span class="fu">article</span><span class="kw">:</span><span class="at"> index.qmd</span></span>
-<span id="cb16-8"><a></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb16-9"><a></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
-<span id="cb16-10"><a></a><span class="at">    </span><span class="fu">comments</span><span class="kw">:</span></span>
-<span id="cb16-11"><a></a><span class="at">      </span><span class="fu">hypothesis</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb16-12"><a></a><span class="at">  </span><span class="fu">docx</span><span class="kw">:</span><span class="at"> default</span></span>
-<span id="cb16-13"><a></a><span class="at">  </span><span class="fu">jats</span><span class="kw">:</span><span class="at"> default</span></span>
-<span id="cb16-14"><a></a><span class="fu">execute</span><span class="kw">:</span></span>
-<span id="cb16-15"><a></a><span class="at">  </span><span class="fu">freeze</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb16-16"><a></a><span class="fu">bibliography</span><span class="kw">:</span><span class="at"> bibliography.bib</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb17-1"><a></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb17-2"><a></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> manuscript</span></span>
+<span id="cb17-3"><a></a><span class="at">  </span><span class="fu">resources</span><span class="kw">:</span></span>
+<span id="cb17-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> bibliography.bib</span></span>
+<span id="cb17-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> notebooks/*.qmd</span></span>
+<span id="cb17-6"><a></a><span class="fu">manuscript</span><span class="kw">:</span></span>
+<span id="cb17-7"><a></a><span class="at">  </span><span class="fu">article</span><span class="kw">:</span><span class="at"> index.qmd</span></span>
+<span id="cb17-8"><a></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb17-9"><a></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb17-10"><a></a><span class="at">    </span><span class="fu">comments</span><span class="kw">:</span></span>
+<span id="cb17-11"><a></a><span class="at">      </span><span class="fu">hypothesis</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb17-12"><a></a><span class="at">  </span><span class="fu">docx</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb17-13"><a></a><span class="at">  </span><span class="fu">jats</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb17-14"><a></a><span class="fu">execute</span><span class="kw">:</span></span>
+<span id="cb17-15"><a></a><span class="at">  </span><span class="fu">freeze</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb17-16"><a></a><span class="fu">bibliography</span><span class="kw">:</span><span class="at"> bibliography.bib</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="website-publishing-and-sharing" class="slide level2">
 <h2>Website Publishing and Sharing</h2>
 <p>Before publishing, make sure to commit and push your changes to GitHub.</p>
 <p>To publish your manuscript as a website, run the following command in your terminal:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a></a><span class="ex">quarto</span> publish gh-pages</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a></a><span class="ex">quarto</span> publish gh-pages</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Go to your GitHub repository and navigate to Settings &gt; Pages and your live site should be listed.</p>
 
 
