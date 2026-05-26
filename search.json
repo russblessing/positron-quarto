@@ -165,25 +165,39 @@
     "href": "index.html#workflow-overview",
     "title": "Reproducible Research with Quarto",
     "section": "Workflow Overview",
-    "text": "Workflow Overview\nDevelopment Environment\n\nPreferred: Positron IDE + Quarto\n\nInstall Positron IDE\nI recommend watching this Quarto video before going any further.\n\nAlternative: RStudio Sandbox (GDAL pre-loaded) + Quarto\n\nRequires a request to IT for access and setup\n\n\nData Inspection\n\nQGIS (visual review & QA/QC)\n\nmodule load apptainer\napptainer exec /nas/longleaf/containers/qgis/3.99/image/qgis.simg qgis"
+    "text": "Workflow Overview\nDevelopment Environment\n\nPreferred: Positron IDE + Quarto\n\nInstall Positron IDE\nI recommend watching this Quarto video before going any further.\n\nAlternative: RStudio Sandbox (GDAL pre-loaded) + Quarto\n\nRequires a request to IT for access and setup\n\n\nData Inspection\n\nQGIS (visual review & QA/QC)"
   },
   {
     "objectID": "index.html#setting-up-positron",
     "href": "index.html#setting-up-positron",
     "title": "Reproducible Research with Quarto",
     "section": "Setting up Positron",
-    "text": "Setting up Positron\nEdit your ssh file on your local machine:\nnano ~/.ssh/config\nCopy/Paste replacing YOUR_ONYEN with your actual ONYEN:\nHost longleaf\n  HostName longleaf.unc.edu\n  User YOUR_ONYEN\n  ServerAliveInterval 60\n  ServerAliveCountMax 3\n\nHost b* c* g* t*\n  User YOUR_ONYEN\n  ProxyJump longleaf\n  ServerAliveInterval 60\n  ServerAliveCountMax 3\n\nHost *.ll.unc.edu\n  User YOUR_ONYEN\n  ProxyJump longleaf\n  ServerAliveInterval 60\n  ServerAliveCountMax 3\nSave and exit the file (Ctrl + O, Enter, Ctrl + X)."
+    "text": "Setting up Positron\nEdit your ssh file on your local machine:\nnano ~/.ssh/config\nCopy/Paste replacing YOUR_ONYEN with your actual ONYEN:"
+  },
+  {
+    "objectID": "index.html#setting-up-positron-cont.",
+    "href": "index.html#setting-up-positron-cont.",
+    "title": "Reproducible Research with Quarto",
+    "section": "Setting up Positron (cont.)",
+    "text": "Setting up Positron (cont.)\nHost longleaf\n  HostName longleaf.unc.edu\n  User YOUR_ONYEN\n  ServerAliveInterval 60\n  ServerAliveCountMax 3\n\nHost b* c* g* t*\n  User YOUR_ONYEN\n  ProxyJump longleaf\n  ServerAliveInterval 60\n  ServerAliveCountMax 3\n\nHost *.ll.unc.edu\n  User YOUR_ONYEN\n  ProxyJump longleaf\n  ServerAliveInterval 60\n  ServerAliveCountMax 3\nSave and exit the file (Ctrl + O, Enter, Ctrl + X)."
   },
   {
     "objectID": "index.html#longleaf-integration",
     "href": "index.html#longleaf-integration",
     "title": "Reproducible Research with Quarto",
     "section": "Longleaf Integration",
-    "text": "Longleaf Integration\nLogin to longleaf from your terminal:\nssh longleaf\nCreate a SLURM script for Positron sessions (type: nano interactive) and paste:\n#!/bin/bash\n# Adjust --cpus-per-task if using parallel processing\n# Adjust --mem based on your needs\n\nsalloc \\\n  --job-name=positron \\\n  --cpus-per-task=1 \\ \n  --mem=70GB \\ \n  --nodes=1 \\\n  --ntasks=1 \\\n  --time=08:00:00 \\\n  --partition=interact\nSave and exit the file (Ctrl + O, Enter, Ctrl + X)."
+    "text": "Longleaf Integration\nLogin to longleaf from your terminal:\nssh longleaf\nCreate a SALLOC script for Positron sessions:\nnano interactive\nThen copy/paste the following:"
   },
   {
     "objectID": "index.html#longleaf-integration-cont.",
     "href": "index.html#longleaf-integration-cont.",
+    "title": "Reproducible Research with Quarto",
+    "section": "Longleaf Integration (cont.)",
+    "text": "Longleaf Integration (cont.)\n#!/bin/bash\n# Adjust --cpus-per-task if using parallel processing\n# Adjust --mem based on your needs\n\nsalloc \\\n  --job-name=positron \\\n  --cpus-per-task=1 \\ \n  --mem=70GB \\ \n  --nodes=1 \\\n  --ntasks=1 \\\n  --time=08:00:00 \\\n  --partition=interact\nSave and exit the file (Ctrl + O, Enter, Ctrl + X)."
+  },
+  {
+    "objectID": "index.html#longleaf-integration-cont.-1",
+    "href": "index.html#longleaf-integration-cont.-1",
     "title": "Reproducible Research with Quarto",
     "section": "Longleaf Integration (cont.)",
     "text": "Longleaf Integration (cont.)\nSubmit the SLURM script to start an interactive session:\nbash interactive\nYou will see something like this:\nsalloc: Pending job allocation 31348688\nsalloc: job 31348688 queued and waiting for resources\nsalloc: job 31348688 has been allocated resources\nsalloc: Granted job allocation 31348688\nsalloc: Nodes c0402 are ready for job\nCopy the node name (e.g., c0402)"

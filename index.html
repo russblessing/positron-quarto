@@ -1769,38 +1769,44 @@ They stay in sync automatically.</p>
 <ul>
 <li>QGIS (visual review &amp; QA/QC)</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a></a><span class="ex">module</span> load apptainer</span>
-<span id="cb10-2"><a></a><span class="ex">apptainer</span> exec /nas/longleaf/containers/qgis/3.99/image/qgis.simg qgis</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="setting-up-positron" class="slide level2">
 <h2>Setting up Positron</h2>
 <p>Edit your ssh file on your local machine:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a></a><span class="fu">nano</span> ~/.ssh/config</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a></a><span class="fu">nano</span> ~/.ssh/config</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Copy/Paste replacing <code>YOUR_ONYEN</code> with your actual ONYEN:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a></a><span class="ex">Host</span> longleaf</span>
-<span id="cb12-2"><a></a>  <span class="ex">HostName</span> longleaf.unc.edu</span>
-<span id="cb12-3"><a></a>  <span class="ex">User</span> YOUR_ONYEN</span>
-<span id="cb12-4"><a></a>  <span class="ex">ServerAliveInterval</span> 60</span>
-<span id="cb12-5"><a></a>  <span class="ex">ServerAliveCountMax</span> 3</span>
-<span id="cb12-6"><a></a></span>
-<span id="cb12-7"><a></a><span class="ex">Host</span> b<span class="pp">*</span> c<span class="pp">*</span> g<span class="pp">*</span> t<span class="pp">*</span></span>
-<span id="cb12-8"><a></a>  <span class="ex">User</span> YOUR_ONYEN</span>
-<span id="cb12-9"><a></a>  <span class="ex">ProxyJump</span> longleaf</span>
-<span id="cb12-10"><a></a>  <span class="ex">ServerAliveInterval</span> 60</span>
-<span id="cb12-11"><a></a>  <span class="ex">ServerAliveCountMax</span> 3</span>
-<span id="cb12-12"><a></a></span>
-<span id="cb12-13"><a></a><span class="ex">Host</span> <span class="pp">*</span>.ll.unc.edu</span>
-<span id="cb12-14"><a></a>  <span class="ex">User</span> YOUR_ONYEN</span>
-<span id="cb12-15"><a></a>  <span class="ex">ProxyJump</span> longleaf</span>
-<span id="cb12-16"><a></a>  <span class="ex">ServerAliveInterval</span> 60</span>
-<span id="cb12-17"><a></a>  <span class="ex">ServerAliveCountMax</span> 3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="setting-up-positron-cont." class="slide level2">
+<h2>Setting up Positron (cont.)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a></a><span class="ex">Host</span> longleaf</span>
+<span id="cb11-2"><a></a>  <span class="ex">HostName</span> longleaf.unc.edu</span>
+<span id="cb11-3"><a></a>  <span class="ex">User</span> YOUR_ONYEN</span>
+<span id="cb11-4"><a></a>  <span class="ex">ServerAliveInterval</span> 60</span>
+<span id="cb11-5"><a></a>  <span class="ex">ServerAliveCountMax</span> 3</span>
+<span id="cb11-6"><a></a></span>
+<span id="cb11-7"><a></a><span class="ex">Host</span> b<span class="pp">*</span> c<span class="pp">*</span> g<span class="pp">*</span> t<span class="pp">*</span></span>
+<span id="cb11-8"><a></a>  <span class="ex">User</span> YOUR_ONYEN</span>
+<span id="cb11-9"><a></a>  <span class="ex">ProxyJump</span> longleaf</span>
+<span id="cb11-10"><a></a>  <span class="ex">ServerAliveInterval</span> 60</span>
+<span id="cb11-11"><a></a>  <span class="ex">ServerAliveCountMax</span> 3</span>
+<span id="cb11-12"><a></a></span>
+<span id="cb11-13"><a></a><span class="ex">Host</span> <span class="pp">*</span>.ll.unc.edu</span>
+<span id="cb11-14"><a></a>  <span class="ex">User</span> YOUR_ONYEN</span>
+<span id="cb11-15"><a></a>  <span class="ex">ProxyJump</span> longleaf</span>
+<span id="cb11-16"><a></a>  <span class="ex">ServerAliveInterval</span> 60</span>
+<span id="cb11-17"><a></a>  <span class="ex">ServerAliveCountMax</span> 3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Save and exit the file (Ctrl + O, Enter, Ctrl + X).</p>
 </section>
 <section id="longleaf-integration" class="slide level2">
 <h2>Longleaf Integration</h2>
 <p>Login to longleaf from your terminal:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a></a><span class="fu">ssh</span> longleaf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Create a SLURM script for Positron sessions (type: nano interactive) and paste:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a></a><span class="fu">ssh</span> longleaf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Create a SALLOC script for Positron sessions:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a></a><span class="fu">nano</span> interactive</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Then copy/paste the following:</p>
+</section>
+<section id="longleaf-integration-cont." class="slide level2">
+<h2>Longleaf Integration (cont.)</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a></a><span class="co">#!/bin/bash</span></span>
 <span id="cb14-2"><a></a><span class="co"># Adjust --cpus-per-task if using parallel processing</span></span>
 <span id="cb14-3"><a></a><span class="co"># Adjust --mem based on your needs</span></span>
@@ -1815,7 +1821,7 @@ They stay in sync automatically.</p>
 <span id="cb14-12"><a></a>  <span class="at">--partition</span><span class="op">=</span>interact</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Save and exit the file (Ctrl + O, Enter, Ctrl + X).</p>
 </section>
-<section id="longleaf-integration-cont." class="slide level2">
+<section id="longleaf-integration-cont.-1" class="slide level2">
 <h2>Longleaf Integration (cont.)</h2>
 <p>Submit the SLURM script to start an interactive session:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a></a><span class="fu">bash</span> interactive</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
