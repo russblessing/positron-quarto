@@ -560,11 +560,15 @@ Type: `<<cluster id>>.ll.unc.edu` and hit enter
 
 ## Create a Quarto Project
 In Positron, go to New > New Folder from Git > and paste the URL of your GitHub repository 
-Next, select New > New File > Quarto Project > Manuscript Project
+Next, create a Quarto Manuscript Project within the directory 
+
+``` bash
+quarto create project manuscript .
+```
 
 - This will create a new folder with the necessary files for a Quarto manuscript project
 - Use the `index.qmd` file as your main manuscript file and edit it with your content
-- Use the `references.bib` file to manage your bibliography and citations
+- Use the `references.bib` file to manage your citations
 - Use the notebooks folder to create and organize your data analysis notebooks as qmd files
 - Click preview to see the rendered manuscript and make adjustments as needed
 
