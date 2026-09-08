@@ -221,7 +221,7 @@
     "href": "index.html#create-a-quarto-project",
     "title": "Reproducible Research with Quarto",
     "section": "Create a Quarto Project",
-    "text": "Create a Quarto Project\nIn Positron, go to New &gt; New Folder from Git &gt; and paste the URL of your GitHub repository Next, select New &gt; New File &gt; Quarto Project &gt; Manuscript Project\n\nThis will create a new folder with the necessary files for a Quarto manuscript project\nUse the index.qmd file as your main manuscript file and edit it with your content\nUse the references.bib file to manage your bibliography and citations\nUse the notebooks folder to create and organize your data analysis notebooks as qmd files\nClick preview to see the rendered manuscript and make adjustments as needed"
+    "text": "Create a Quarto Project\nIn Positron, go to New &gt; New Folder from Git &gt; and paste the URL of your GitHub repository Next, create a Quarto Manuscript Project within the directory\nquarto create project manuscript .\n\nThis will create a new folder with the necessary files for a Quarto manuscript project\nUse the index.qmd file as your main manuscript file and edit it with your content\nUse the references.bib file to manage your citations\nUse the notebooks folder to create and organize your data analysis notebooks as qmd files\nClick preview to see the rendered manuscript and make adjustments as needed"
   },
   {
     "objectID": "index.html#manucript-formatting-publishing",

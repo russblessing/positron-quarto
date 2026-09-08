@@ -1847,11 +1847,12 @@ salloc: Nodes c0402 are ready for job</code></pre>
 </section>
 <section id="create-a-quarto-project" class="slide level2">
 <h2>Create a Quarto Project</h2>
-<p>In Positron, go to New &gt; New Folder from Git &gt; and paste the URL of your GitHub repository Next, select New &gt; New File &gt; Quarto Project &gt; Manuscript Project</p>
+<p>In Positron, go to New &gt; New Folder from Git &gt; and paste the URL of your GitHub repository Next, create a Quarto Manuscript Project within the directory</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a></a><span class="ex">quarto</span> create project manuscript .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li>This will create a new folder with the necessary files for a Quarto manuscript project</li>
 <li>Use the <code>index.qmd</code> file as your main manuscript file and edit it with your content</li>
-<li>Use the <code>references.bib</code> file to manage your bibliography and citations</li>
+<li>Use the <code>references.bib</code> file to manage your citations</li>
 <li>Use the notebooks folder to create and organize your data analysis notebooks as qmd files</li>
 <li>Click preview to see the rendered manuscript and make adjustments as needed</li>
 </ul>
@@ -1868,28 +1869,28 @@ salloc: Nodes c0402 are ready for job</code></pre>
 <section id="manuscript-formatting-publishing-cont." class="slide level2">
 <h2>Manuscript Formatting &amp; Publishing (cont.)</h2>
 <p>Back is Positron your yaml should look something like this:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb17-1"><a></a><span class="fu">project</span><span class="kw">:</span></span>
-<span id="cb17-2"><a></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> manuscript</span></span>
-<span id="cb17-3"><a></a><span class="at">  </span><span class="fu">resources</span><span class="kw">:</span></span>
-<span id="cb17-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> bibliography.bib</span></span>
-<span id="cb17-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> notebooks/*.qmd</span></span>
-<span id="cb17-6"><a></a><span class="fu">manuscript</span><span class="kw">:</span></span>
-<span id="cb17-7"><a></a><span class="at">  </span><span class="fu">article</span><span class="kw">:</span><span class="at"> index.qmd</span></span>
-<span id="cb17-8"><a></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb17-9"><a></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
-<span id="cb17-10"><a></a><span class="at">    </span><span class="fu">comments</span><span class="kw">:</span></span>
-<span id="cb17-11"><a></a><span class="at">      </span><span class="fu">hypothesis</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb17-12"><a></a><span class="at">  </span><span class="fu">docx</span><span class="kw">:</span><span class="at"> default</span></span>
-<span id="cb17-13"><a></a><span class="at">  </span><span class="fu">jats</span><span class="kw">:</span><span class="at"> default</span></span>
-<span id="cb17-14"><a></a><span class="fu">execute</span><span class="kw">:</span></span>
-<span id="cb17-15"><a></a><span class="at">  </span><span class="fu">freeze</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb17-16"><a></a><span class="fu">bibliography</span><span class="kw">:</span><span class="at"> bibliography.bib</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb18-1"><a></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb18-2"><a></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> manuscript</span></span>
+<span id="cb18-3"><a></a><span class="at">  </span><span class="fu">resources</span><span class="kw">:</span></span>
+<span id="cb18-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> bibliography.bib</span></span>
+<span id="cb18-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> notebooks/*.qmd</span></span>
+<span id="cb18-6"><a></a><span class="fu">manuscript</span><span class="kw">:</span></span>
+<span id="cb18-7"><a></a><span class="at">  </span><span class="fu">article</span><span class="kw">:</span><span class="at"> index.qmd</span></span>
+<span id="cb18-8"><a></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb18-9"><a></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb18-10"><a></a><span class="at">    </span><span class="fu">comments</span><span class="kw">:</span></span>
+<span id="cb18-11"><a></a><span class="at">      </span><span class="fu">hypothesis</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb18-12"><a></a><span class="at">  </span><span class="fu">docx</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb18-13"><a></a><span class="at">  </span><span class="fu">jats</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb18-14"><a></a><span class="fu">execute</span><span class="kw">:</span></span>
+<span id="cb18-15"><a></a><span class="at">  </span><span class="fu">freeze</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb18-16"><a></a><span class="fu">bibliography</span><span class="kw">:</span><span class="at"> bibliography.bib</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="website-publishing-and-sharing" class="slide level2">
 <h2>Website Publishing and Sharing</h2>
 <p>Before publishing, make sure to commit and push your changes to GitHub.</p>
 <p>To publish your manuscript as a website, run the following command in your terminal:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a></a><span class="ex">quarto</span> publish gh-pages</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a></a><span class="ex">quarto</span> publish gh-pages</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Go to your GitHub repository and navigate to Settings &gt; Pages and your live site should be listed.</p>
 
 
