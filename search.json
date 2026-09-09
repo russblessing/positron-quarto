@@ -221,7 +221,7 @@
     "href": "index.html#install-quarto-in-longleaf",
     "title": "Reproducible Research with Quarto",
     "section": "Install Quarto in Longleaf",
-    "text": "Install Quarto in Longleaf\nGo to: https://ondemand.rc.unc.edu/ Select: Files &gt; Home Click: &gt;_Open in Terminal copy/paste this into termal and hit enter\ncd ~\nwget https://github.com/quarto-dev/quarto-cli/releases/download/v1.8.27/quarto-1.8.27-linux-amd64.tar.gz\ntar -xzvf quarto-1.8.27-linux-amd64.tar.gz\nln -s $PWD/quarto-1.8.27/bin/quarto ~/bin/quarto"
+    "text": "Install Quarto in Longleaf\n\nGo to: https://ondemand.rc.unc.edu/\nSelect: Files &gt; Home\nClick: &gt;_Open in Terminal\ncopy/paste this into termal and hit enter\n\ncd ~\nwget https://github.com/quarto-dev/quarto-cli/releases/download/v1.8.27/quarto-1.8.27-linux-amd64.tar.gz\ntar -xzvf quarto-1.8.27-linux-amd64.tar.gz\nln -s $PWD/quarto-1.8.27/bin/quarto ~/bin/quarto"
   },
   {
     "objectID": "index.html#create-a-quarto-project",
