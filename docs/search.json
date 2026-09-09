@@ -193,7 +193,7 @@
     "href": "index.html#longleaf-integration-cont.",
     "title": "Reproducible Research with Quarto",
     "section": "Longleaf Integration (cont.)",
-    "text": "Longleaf Integration (cont.)\n#!/bin/bash\n# Adjust --cpus-per-task if using parallel processing\n# Adjust --mem based on your needs\n\nsalloc \\\n  --job-name=positron \\\n  --cpus-per-task=1 \\ \n  --mem=70GB \\ \n  --nodes=1 \\\n  --ntasks=1 \\\n  --time=08:00:00 \\\n  --partition=interact\nSave and exit the file (Ctrl + O, Enter, Ctrl + X)."
+    "text": "Longleaf Integration (cont.)\n#!/bin/bash\n# Adjust --cpus-per-task if using parallel processing\n# Adjust --mem based on your needs\n\nsalloc \\\n  --job-name=positron \\\n  --cpus-per-task=1 \\\n  --mem=70GB \\\n  --nodes=1 \\\n  --ntasks=1 \\\n  --time=08:00:00 \\\n  --partition=interact\nSave and exit the file (Ctrl + O, Enter, Ctrl + X)."
   },
   {
     "objectID": "index.html#longleaf-integration-cont.-1",
@@ -217,11 +217,18 @@
     "text": "Integrating Positron with Longleaf (cont.)\nNext type: cmd-shift-p or ctrl-shift-p to open the command palette and type: ssh\n\nYou will see something like this:\n\n Type: &lt;&lt;cluster id&gt;&gt;.ll.unc.edu and hit enter"
   },
   {
+    "objectID": "index.html#install-quarto-in-longleaf",
+    "href": "index.html#install-quarto-in-longleaf",
+    "title": "Reproducible Research with Quarto",
+    "section": "Install Quarto in Longleaf",
+    "text": "Install Quarto in Longleaf\nGo to: https://ondemand.rc.unc.edu/ Select: Files &gt; Home Click: &gt;_Open in Terminal copy/paste this into termal and hit enter\ncd ~\nwget https://github.com/quarto-dev/quarto-cli/releases/download/v1.8.27/quarto-1.8.27-linux-amd64.tar.gz\ntar -xzvf quarto-1.8.27-linux-amd64.tar.gz\nln -s $PWD/quarto-1.8.27/bin/quarto ~/bin/quarto"
+  },
+  {
     "objectID": "index.html#create-a-quarto-project",
     "href": "index.html#create-a-quarto-project",
     "title": "Reproducible Research with Quarto",
     "section": "Create a Quarto Project",
-    "text": "Create a Quarto Project\nIn Positron, go to New &gt; New Folder from Git &gt; and paste the URL of your GitHub repository Next, select New &gt; New File &gt; Quarto Project &gt; Manuscript Project\n\nThis will create a new folder with the necessary files for a Quarto manuscript project\nUse the index.qmd file as your main manuscript file and edit it with your content\nUse the references.bib file to manage your citations\nUse the notebooks folder to create and organize your data analysis notebooks as qmd files\nClick preview to see the rendered manuscript and make adjustments as needed"
+    "text": "Create a Quarto Project\nIn Positron, go to New &gt; New Folder from Git &gt; and paste the URL of your GitHub repository Next, create a Quarto Manuscript Project within the directory\nquarto create project manuscript .\n\nThis will create a new folder with the necessary files for a Quarto manuscript project\nUse the index.qmd file as your main manuscript file and edit it with your content\nUse the references.bib file to manage your citations\nUse the notebooks folder to create and organize your data analysis notebooks as qmd files"
   },
   {
     "objectID": "index.html#manucript-formatting-publishing",

@@ -566,12 +566,12 @@ Next type: `cmd-shift-p` or `ctrl-shift-p` to open the command palette and type:
 
 ## Install Quarto in Longleaf
 
-Go to: https://ondemand.rc.unc.edu/ 
-Select: Files > Home
-Click: >_Open in Terminal
-copy/paste this into termal and hit enter
+- Go to: https://ondemand.rc.unc.edu/
+- Select: Files \> Home
+- Click: \>\_Open in Terminal
+- copy/paste this into termal and hit enter
 
-```bash
+``` bash
 cd ~
 wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.8.27/quarto-1.8.27-linux-amd64.tar.gz
 tar -xzvf quarto-1.8.27-linux-amd64.tar.gz
