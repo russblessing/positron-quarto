@@ -463,9 +463,71 @@ Slides built with [Quarto](https://quarto.org) + [Positron](https://positron.pos
 
 - QGIS (visual review & QA/QC)
 
+## Longleaf Configuration: Load Modules
+
+- Go to: https://ondemand.rc.unc.edu/
+- Select: Files \> Home
+- Click: \>\_Open in Terminal
+- copy/paste this into terminal and hit enter
+
+``` bash
+module purge
+module add r/4.5.0
+module add gdal/3.11.0
+```
+
+## Longleaf Configuration: Install `units` from Source
+
+The current CRAN release doesn't build cleanly — use the archived version instead:
+
+```bash
+wget https://cran.r-project.org/src/contrib/Archive/units/units_0.8-7.tar.gz
+R CMD INSTALL units_0.8-7.tar.gz
+```
+
+## Longleaf Configuration: Install supporting packages
+
+Start R and install normally from CRAN:
+
+```r
+R
+> install.packages(c('classInt', 's2'))
+```
+
+::: {.fragment}
+Choose the **USA (IA) [https]** mirror if prompted.
+:::
+
+::: {.fragment}
+When you quit (`q()`), select **n** — don't save the workspace image.
+:::
+
+## Longleaf Configuration: Install `sf` from Source 
+
+```bash
+wget https://cran.r-project.org/src/contrib/sf_1.0-24.tar.gz
+```
+
+Then, all on one line:
+
+```bash
+R CMD INSTALL sf_1.0-24.tar.gz --configure-args='--with-gdal-config=/nas/longleaf/rhel9/apps/gdal/3.11.0/bin/gdal-config --with-geos-config=/nas/longleaf/rhel9/apps/geos/3.12.0/bin/geos-config --with-proj-lib=/nas/longleaf/rhel9/apps/proj/9.2.1/lib64 --with-proj-include=/nas/longleaf/rhel9/apps/proj/9.2.1/include --with-sqlite3-lib=/nas/longleaf/rhel9/apps/sqlite/3.39.0/lib'
+```
+
+
+## Install Quarto on Longleaf
+
+``` bash
+cd ~
+wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.8.27/quarto-1.8.27-linux-amd64.tar.gz
+tar -xzvf quarto-1.8.27-linux-amd64.tar.gz
+ln -s $PWD/quarto-1.8.27/bin/quarto ~/bin/quarto
+```
+
+
 ## Setting up Positron
 
-Edit your ssh file on your local machine:
+Edit your ssh file on your local machine from terminal:
 
 ``` bash
 nano ~/.ssh/config
@@ -563,20 +625,6 @@ Next type: `cmd-shift-p` or `ctrl-shift-p` to open the command palette and type:
 - You will see something like this:
 
 ![](assets/screenshots/ssh.png) Type: `<<cluster id>>.ll.unc.edu` and hit enter
-
-## Install Quarto in Longleaf
-
-- Go to: https://ondemand.rc.unc.edu/
-- Select: Files \> Home
-- Click: \>\_Open in Terminal
-- copy/paste this into termal and hit enter
-
-``` bash
-cd ~
-wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.8.27/quarto-1.8.27-linux-amd64.tar.gz
-tar -xzvf quarto-1.8.27-linux-amd64.tar.gz
-ln -s $PWD/quarto-1.8.27/bin/quarto ~/bin/quarto
-```
 
 ## Create a Quarto Project
 
