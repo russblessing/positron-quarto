@@ -481,6 +481,7 @@ module add gdal/3.11.0
 The current CRAN release doesn't build cleanly — use the archived version instead:
 
 ```bash
+mkdir -p ~/R/x86_64-pc-linux-gnu-library/4.5
 wget https://cran.r-project.org/src/contrib/Archive/units/units_0.8-7.tar.gz
 R CMD INSTALL units_0.8-7.tar.gz
 ```
@@ -491,6 +492,7 @@ Start R and install normally from CRAN:
 
 ```r
 R
+#then, seperate line as new entry
 > install.packages(c('classInt', 's2'))
 ```
 

@@ -168,11 +168,46 @@
     "text": "Workflow Overview\nDevelopment Environment\n\nPreferred: Positron IDE + Quarto\n\nInstall Positron IDE\nI recommend watching this Quarto video before going any further.\n\nAlternative: RStudio Sandbox (GDAL pre-loaded) + Quarto\n\nRequires a request to IT for access and setup\n\n\nData Inspection\n\nQGIS (visual review & QA/QC)"
   },
   {
+    "objectID": "index.html#longleaf-configuration-load-modules",
+    "href": "index.html#longleaf-configuration-load-modules",
+    "title": "Reproducible Research with Quarto",
+    "section": "Longleaf Configuration: Load Modules",
+    "text": "Longleaf Configuration: Load Modules\n\nGo to: https://ondemand.rc.unc.edu/\nSelect: Files &gt; Home\nClick: &gt;_Open in Terminal\ncopy/paste this into terminal and hit enter\n\nmodule purge\nmodule add r/4.5.0\nmodule add gdal/3.11.0"
+  },
+  {
+    "objectID": "index.html#longleaf-configuration-install-units-from-source",
+    "href": "index.html#longleaf-configuration-install-units-from-source",
+    "title": "Reproducible Research with Quarto",
+    "section": "Longleaf Configuration: Install units from Source",
+    "text": "Longleaf Configuration: Install units from Source\nThe current CRAN release doesn’t build cleanly — use the archived version instead:\nwget https://cran.r-project.org/src/contrib/Archive/units/units_0.8-7.tar.gz\nR CMD INSTALL units_0.8-7.tar.gz"
+  },
+  {
+    "objectID": "index.html#longleaf-configuration-install-supporting-packages",
+    "href": "index.html#longleaf-configuration-install-supporting-packages",
+    "title": "Reproducible Research with Quarto",
+    "section": "Longleaf Configuration: Install supporting packages",
+    "text": "Longleaf Configuration: Install supporting packages\nStart R and install normally from CRAN:\nR\n&gt; install.packages(c('classInt', 's2'))\n\nChoose the USA (IA) [https] mirror if prompted.\n\n\nWhen you quit (q()), select n — don’t save the workspace image."
+  },
+  {
+    "objectID": "index.html#longleaf-configuration-install-sf-from-source",
+    "href": "index.html#longleaf-configuration-install-sf-from-source",
+    "title": "Reproducible Research with Quarto",
+    "section": "Longleaf Configuration: Install sf from Source",
+    "text": "Longleaf Configuration: Install sf from Source\nwget https://cran.r-project.org/src/contrib/sf_1.0-24.tar.gz\nThen, all on one line:\nR CMD INSTALL sf_1.0-24.tar.gz --configure-args='--with-gdal-config=/nas/longleaf/rhel9/apps/gdal/3.11.0/bin/gdal-config --with-geos-config=/nas/longleaf/rhel9/apps/geos/3.12.0/bin/geos-config --with-proj-lib=/nas/longleaf/rhel9/apps/proj/9.2.1/lib64 --with-proj-include=/nas/longleaf/rhel9/apps/proj/9.2.1/include --with-sqlite3-lib=/nas/longleaf/rhel9/apps/sqlite/3.39.0/lib'"
+  },
+  {
+    "objectID": "index.html#install-quarto-on-longleaf",
+    "href": "index.html#install-quarto-on-longleaf",
+    "title": "Reproducible Research with Quarto",
+    "section": "Install Quarto on Longleaf",
+    "text": "Install Quarto on Longleaf\ncd ~\nwget https://github.com/quarto-dev/quarto-cli/releases/download/v1.8.27/quarto-1.8.27-linux-amd64.tar.gz\ntar -xzvf quarto-1.8.27-linux-amd64.tar.gz\nln -s $PWD/quarto-1.8.27/bin/quarto ~/bin/quarto"
+  },
+  {
     "objectID": "index.html#setting-up-positron",
     "href": "index.html#setting-up-positron",
     "title": "Reproducible Research with Quarto",
     "section": "Setting up Positron",
-    "text": "Setting up Positron\nEdit your ssh file on your local machine:\nnano ~/.ssh/config\nCopy/Paste replacing YOUR_ONYEN with your actual ONYEN:"
+    "text": "Setting up Positron\nEdit your ssh file on your local machine from terminal:\nnano ~/.ssh/config\nCopy/Paste replacing YOUR_ONYEN with your actual ONYEN:"
   },
   {
     "objectID": "index.html#setting-up-positron-cont.",
@@ -215,13 +250,6 @@
     "title": "Reproducible Research with Quarto",
     "section": "Integrating Positron with Longleaf (cont.)",
     "text": "Integrating Positron with Longleaf (cont.)\nNext type: cmd-shift-p or ctrl-shift-p to open the command palette and type: ssh\n\nYou will see something like this:\n\n Type: &lt;&lt;cluster id&gt;&gt;.ll.unc.edu and hit enter"
-  },
-  {
-    "objectID": "index.html#install-quarto-in-longleaf",
-    "href": "index.html#install-quarto-in-longleaf",
-    "title": "Reproducible Research with Quarto",
-    "section": "Install Quarto in Longleaf",
-    "text": "Install Quarto in Longleaf\n\nGo to: https://ondemand.rc.unc.edu/\nSelect: Files &gt; Home\nClick: &gt;_Open in Terminal\ncopy/paste this into termal and hit enter\n\ncd ~\nwget https://github.com/quarto-dev/quarto-cli/releases/download/v1.8.27/quarto-1.8.27-linux-amd64.tar.gz\ntar -xzvf quarto-1.8.27-linux-amd64.tar.gz\nln -s $PWD/quarto-1.8.27/bin/quarto ~/bin/quarto"
   },
   {
     "objectID": "index.html#create-a-quarto-project",
