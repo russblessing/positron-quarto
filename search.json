@@ -179,14 +179,14 @@
     "href": "index.html#longleaf-configuration-install-units-from-source",
     "title": "Reproducible Research with Quarto",
     "section": "Longleaf Configuration: Install units from Source",
-    "text": "Longleaf Configuration: Install units from Source\nThe current CRAN release doesn’t build cleanly — use the archived version instead:\nwget https://cran.r-project.org/src/contrib/Archive/units/units_0.8-7.tar.gz\nR CMD INSTALL units_0.8-7.tar.gz"
+    "text": "Longleaf Configuration: Install units from Source\nThe current CRAN release doesn’t build cleanly — use the archived version instead:\nmkdir -p ~/R/x86_64-pc-linux-gnu-library/4.5\nwget https://cran.r-project.org/src/contrib/Archive/units/units_0.8-7.tar.gz\nR CMD INSTALL units_0.8-7.tar.gz"
   },
   {
     "objectID": "index.html#longleaf-configuration-install-supporting-packages",
     "href": "index.html#longleaf-configuration-install-supporting-packages",
     "title": "Reproducible Research with Quarto",
     "section": "Longleaf Configuration: Install supporting packages",
-    "text": "Longleaf Configuration: Install supporting packages\nStart R and install normally from CRAN:\nR\n&gt; install.packages(c('classInt', 's2'))\n\nChoose the USA (IA) [https] mirror if prompted.\n\n\nWhen you quit (q()), select n — don’t save the workspace image."
+    "text": "Longleaf Configuration: Install supporting packages\nStart R and install normally from CRAN:\nR\n#then, seperate line as new entry\n&gt; install.packages(c('classInt', 's2'))\n\nChoose the USA (IA) [https] mirror if prompted.\n\n\nWhen you quit (q()), select n — don’t save the workspace image."
   },
   {
     "objectID": "index.html#longleaf-configuration-install-sf-from-source",

@@ -1789,14 +1789,16 @@ They stay in sync automatically.</p>
 <section id="longleaf-configuration-install-units-from-source" class="slide level2">
 <h2>Longleaf Configuration: Install <code>units</code> from Source</h2>
 <p>The current CRAN release doesn’t build cleanly — use the archived version instead:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a aria-label="1"></a><span class="fu">wget</span> https://cran.r-project.org/src/contrib/Archive/units/units_0.8-7.tar.gz</span>
-<span id="cb11-2"><a aria-label="2"></a><span class="ex">R</span> CMD INSTALL units_0.8-7.tar.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a aria-label="1"></a><span class="fu">mkdir</span> <span class="at">-p</span> ~/R/x86_64-pc-linux-gnu-library/4.5</span>
+<span id="cb11-2"><a aria-label="2"></a><span class="fu">wget</span> https://cran.r-project.org/src/contrib/Archive/units/units_0.8-7.tar.gz</span>
+<span id="cb11-3"><a aria-label="3"></a><span class="ex">R</span> CMD INSTALL units_0.8-7.tar.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="longleaf-configuration-install-supporting-packages" class="slide level2">
 <h2>Longleaf Configuration: Install supporting packages</h2>
 <p>Start R and install normally from CRAN:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a>R</span>
-<span id="cb12-2"><a aria-label="2"></a><span class="sc">&gt;</span> <span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&#39;classInt&#39;</span>, <span class="st">&#39;s2&#39;</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb12-2"><a aria-label="2"></a><span class="co">#then, seperate line as new entry</span></span>
+<span id="cb12-3"><a aria-label="3"></a><span class="sc">&gt;</span> <span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&#39;classInt&#39;</span>, <span class="st">&#39;s2&#39;</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="fragment">
 <p>Choose the <strong>USA (IA) [https]</strong> mirror if prompted.</p>
 </div>
